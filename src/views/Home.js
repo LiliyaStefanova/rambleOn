@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import WalkDetails from './WalkDetails.js';
-import './App.css';
+import '../App.css';
 
 
 class Home extends Component {
@@ -45,15 +45,12 @@ class Home extends Component {
         }
         return (
             <div className="main">
-                <h2>Plan your walks here!</h2>
-                <Button onClick={this.onClick}>Create Walk</Button>
                 <Search
                     value={term}
                     onChange = {this.onSearchChange}
                     onSubmit={this.onSearchSubmit}>
                     Find Walk</Search>
                 <SearchResults searchResults={searchResults}/>
-                {/*<WalkDetails walk={selectedWalk}/>*/}
             </div>
         );
     }
@@ -86,13 +83,6 @@ const SearchResults = ({searchResults}) =>
     return null;
 };
 
-const Button = ({className='', onClick, children})=>{
-    return (
-        <button className={className} onClick={onClick}>
-            {children}
-        </button>
-    )
-};
 
 
 

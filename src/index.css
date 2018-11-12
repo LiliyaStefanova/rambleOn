@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  padding: 0;
+  padding: 20px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -11,4 +11,23 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+h1, h2, p, ul, li {
+  font-family: sans-serif;
+}
+
+
+.content {
+  background-color: lightgrey;
+  margin-top: 50px;
+}
+
+.content h2{
+  padding:0;
+  margin:20px;
+}
+
+.content li{
+  margin-bottom:10px;
 }
