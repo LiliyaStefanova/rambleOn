@@ -4,7 +4,7 @@ import '../App.css';
 const CreateWalk = () =>
     <div>
         <span>Create Walk</span>
-        <Button onClick={this.onClick}>Create Walk</Button>
+        <Button>Create Walk</Button>
     </div>
 
 
