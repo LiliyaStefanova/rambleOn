@@ -3,7 +3,7 @@ import {Switch, Route, HashRouter} from 'react-router-dom';
 import Header from './views/header/Header';
 import Home from './views/Home';
 import WalkDetails from './views/WalkDetails'
-import CreateWalk from './views/WalkCreator'
+import WalkCreator from './views/WalkCreator'
 import Resources from './views/Resources'
 import Contact from './views/Contact';
 import WalkList from "./views/WalkList";
@@ -15,10 +15,10 @@ class App extends Component{
             <HashRouter>
                 <div>
                     <Header/>
-                    <div className="content">
+                    <div>
                         <Switch>
                             <Route exact path='/' component={Home}/>
-                            <Route path='walk/create' component={CreateWalk}/>
+                            <Route path='walk/create' component={WalkCreator}/>
                             <Route path='/walks/all' component={WalkList}/>
                             <Route path='walk/details' component={WalkDetails}/>
                             <Route path='/resources' component={Resources}/>

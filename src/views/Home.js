@@ -1,8 +1,13 @@
 import React, {Component} from 'react';
 import '../App.css';
 import {Link} from 'react-router-dom';
-import {Container, Row, Col, Button} from 'reactstrap';
+import {Container, Row, Col, Button, Card, CardTitle} from 'reactstrap';
+import {PropTypes} from 'prop-types';
 
+const styles = {
+    buttonStyle: {color: '#f1f1f1'},
+    containerStyle: {background: 'rgba(0, 0, 0,0)', marginTop: '200px'}
+};
 
 class Home extends Component {
 
@@ -12,16 +17,6 @@ class Home extends Component {
         this.state = {
             error: null,
         };
-
-
-    }
-
-    createWalkClick() {
-        console.log('Create Walk Modal');
-    }
-
-    findWalkClick() {
-        console.log('Find walks');
     }
 
     render() {
@@ -30,18 +25,27 @@ class Home extends Component {
             return <p>Something went wrong</p>
         }
         return (
-            <Container>
+            <Container fluid style={styles.containerStyle}>
                 <Row>
-                    <Col>
-                        <span>
-                            <Link to='walk/create'>Create Walk</Link>
-                        </span>
+                    <Col xs="3">
+                        <Card body>
+                            <CardTitle>Plan your next hike</CardTitle>
+                            <Link to='walk/create'>
+                                <Button size="lg" style={styles.buttonStyle}>
+                                    Create Walk
+                                </Button>
+                            </Link>
+                        </Card>
                     </Col>
-                    <Col>
-                        <span>
-                            <Link to='/walks/all'>Find Walk</Link>
-                        </span>
-
+                    <Col xs="3">
+                        <Card body>
+                            <CardTitle>Revisit previous hikes</CardTitle>
+                        <Link to='/walks/all'>
+                            <Button size="lg" style={styles.buttonStyle}>
+                                Find Walk
+                            </Button>
+                        </Link>
+                        </Card>
                     </Col>
                 </Row>
             </Container>
@@ -49,13 +53,9 @@ class Home extends Component {
     }
 }
 
-// const Button = ({className = '', onClick, children}) => {
-//     return (
-//         <button className={className} onClick={onClick}>
-//             {children}
-//         </button>
-//     )
-// };
-
+Container.propTypes = {
+    fluid: PropTypes.bool
+    // applies .container-fluid class
+}
 
 export default Home;

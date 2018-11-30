@@ -1,20 +1,19 @@
-import React from 'react';
+import React, {Component} from 'react';
 import '../App.css';
+import {Button, Form, FormGroup, Label, Input, FormText} from 'reactstrap';
 
-const CreateWalk = () =>
-    <div>
-        <span>Create Walk</span>
-        <Button>Create Walk</Button>
-    </div>
+export default class WalkCreator extends Component{
 
+    render(){
+        return(
+            <div style={{'backgroundColor':'#f1f1f1'}}>Walk</div>
+            // <Form>
+            //     <FormGroup>
+            //         <Label for="title">Title</Label>
+            //         <Input type="text" name="title" id="walkTitle" placeholder="Hike title"/>
+            //     </FormGroup>
+            // </Form>
+        )
+    }
+}
 
-
-const Button = ({className='', onClick, children})=>{
-    return (
-        <button className={className} onClick={onClick}>
-            {children}
-        </button>
-    )
-};
-
-export default CreateWalk;
