@@ -18,9 +18,9 @@ class App extends Component{
                     <div>
                         <Switch>
                             <Route exact path='/' component={Home}/>
-                            <Route path='walk/create' component={WalkCreator}/>
+                            <Route path='/walk/create' component={WalkCreator}/>
                             <Route path='/walks/all' component={WalkList}/>
-                            <Route path='walk/details' component={WalkDetails}/>
+                            <Route path='/walk/details' component={WalkDetails}/>
                             <Route path='/resources' component={Resources}/>
                             <Route path='/contact' component={Contact}/>
                         </Switch>

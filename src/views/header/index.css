@@ -16,3 +16,18 @@ ul.header li a {
     padding:20px;
     display:inline-block;
 }
+
+.link {
+    color: #f1f1f1;
+    font-size:1.2em
+}
+
+.brandLink{
+    color:#f1f1f1
+}
+
+.icon{
+    color: #f1f1f1;
+    size:1em;
+    margin-right:3px
+}
