@@ -26,7 +26,7 @@ render()
     return (
         <Navbar expand="md">
             <NavbarBrand className="mr-auto" style={styles.navBrand}>
-                <FontAwesomeIcon icon="compass" className="icon"/>
+                <FontAwesomeIcon icon="compass" className="navIcon"/>
                 <Link to='/' className="brandLink">Walk Planner</Link>
             </NavbarBrand>
             <Nav pills fill horizontal="right">

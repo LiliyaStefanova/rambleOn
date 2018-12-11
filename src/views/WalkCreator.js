@@ -5,18 +5,20 @@ import '../utils';
 import {Button, Form, FormGroup, Label, Input,Row, Col, FormFeedback} from 'reactstrap';
 import {createGuid} from "../utils";
 
-export default class WalkCreator extends Component{
-
-    constructor(props){
-        super(props);
-        this.state = {
+const initialState ={
             id:'',
             title:'',
             start:'',
             end:'',
             distance:'',
             date:''
-        };
+     };
+
+export default class WalkCreator extends Component{
+
+    constructor(props){
+        super(props);
+        this.state = initialState;
 
         this.handleTitleChange = this.handleTitleChange.bind(this);
         this.handleStartChange = this.handleStartChange.bind(this);
@@ -24,6 +26,7 @@ export default class WalkCreator extends Component{
         this.handleDistanceChange = this.handleDistanceChange.bind(this);
         this.handleDateChange = this.handleDateChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleCancel = this.handleCancel.bind(this);
     }
 
     handleTitleChange(event){
@@ -52,9 +55,14 @@ export default class WalkCreator extends Component{
         const guid = createGuid();
         this.setState({id: guid});
         const { id, title, start, end, distance, date } = this.state;
-        this.saveItemToLocalStorage(id, {title, start, end, distance, date});
-        this.setState({id:''});
+        this.saveItemToLocalStorage(guid, {title, start, end, distance, date});
+
     }
+
+    handleCancel(){
+        this.setState(initialState);
+    }
+
 
     saveItemToLocalStorage(id, item){
         localStorage.setItem(id, item);
@@ -102,7 +110,12 @@ export default class WalkCreator extends Component{
                         </Col>
                     </Row>
                     <FormGroup className="formGroup">
-                        <Button onClick={this.handleSubmit}>Create</Button>
+                        <Button color="primary" active onClick={this.handleSubmit} className="formButton">
+                            Create
+                        </Button>{' '}
+                        <Button color="secondary" onClick={this.handleCancel} className="formButton">
+                            Cancel
+                        </Button>
                     </FormGroup>
                 </Form>
         )

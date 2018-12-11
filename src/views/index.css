@@ -11,8 +11,27 @@
 .form{
     background-color: #f1f1f1;
     margin: 5px 15px 20px 15px;
+    display: inline-block;
+    height: 300px;
+    width: 500px
 }
 
 .formGroup{
     margin: 5px 15px 5px 15px;
+    text-align: left;
 }
+
+/*.formButton{*/
+    /*float:right;*/
+/*}*/
+
+.cardGroup{
+    display:inline-block;
+}
+
+.resourceIcon{
+    color: darkgrey;
+    size:32px;
+    margin-right:3px
+}
+

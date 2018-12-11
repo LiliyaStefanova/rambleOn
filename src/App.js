@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Switch, Route, HashRouter} from 'react-router-dom';
+import {Container} from 'reactstrap';
 import Header from './views/header/Header';
 import Home from './views/Home';
 import WalkDetails from './views/WalkDetails'
@@ -15,16 +16,16 @@ class App extends Component{
             <HashRouter>
                 <div>
                     <Header/>
-                    <div>
-                        <Switch>
-                            <Route exact path='/' component={Home}/>
-                            <Route path='/walk/create' component={WalkCreator}/>
-                            <Route path='/walks/all' component={WalkList}/>
-                            <Route path='/walk/details' component={WalkDetails}/>
-                            <Route path='/resources' component={Resources}/>
-                            <Route path='/contact' component={Contact}/>
-                        </Switch>
-                    </div>
+                        <Container fluid className="viewContainer">
+                            <Switch>
+                                <Route exact path='/' component={Home}/>
+                                <Route path='/walk/create' component={WalkCreator}/>
+                                <Route path='/walks/all' component={WalkList}/>
+                                <Route path='/walk/details' component={WalkDetails}/>
+                                <Route path='/resources' component={Resources}/>
+                                <Route path='/contact' component={Contact}/>
+                            </Switch>
+                        </Container>
                 </div>
             </HashRouter>
         )

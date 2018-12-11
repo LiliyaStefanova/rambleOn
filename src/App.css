@@ -45,3 +45,8 @@ ul.header li a {
 .content li {
     margin-bottom: 10px;
 }
+
+.viewContainer {
+    text-align: center;
+    margin-top: 20px
+}
