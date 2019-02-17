@@ -1,0 +1,18 @@
+.card{
+    margin-bottom: 20px;
+}
+
+.form{
+    background-color: #f1f1f1;
+    margin: 5px 15px 20px 15px;
+    display: inline-block;
+}
+
+.formGroup{
+    margin: 5px 15px 5px 15px;
+    text-align: left;
+}
+
+.radioButton{
+    margin-right: 10px;
+}
