@@ -1,19 +1,11 @@
 dist: xenial
-branches:
-  only:
-    -master
+sudo: false
 language: node_js
-  node_js:
-    - "stable"
-matrix:
-  include:
-    - name: "React App"
-      before_install:
-        - "cd app"
-      install:
-        - "npm install"
-    - name: "Node Service"
-      before_install:
-        - "cd service"
-      install:
-        - "npm install"
+node_js:
+  - 9
+  - 8
+  - node
+env:
+  - TEST_DIR=app
+  - TEST_DIR=service
+script: cd $TEST_DIR && npm install && npm test
