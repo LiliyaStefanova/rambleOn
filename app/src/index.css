@@ -1,11 +1,13 @@
 body {
-  margin: 0;
-  padding: 20px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
   "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height:100%;
+  width: 100%;
+  margin:auto;
+  padding: 10px;
 }
 
 code {
@@ -18,16 +20,3 @@ h1, h2, p, ul, li {
 }
 
 
-.content {
-  background-color: lightgrey;
-  margin-top: 50px;
-}
-
-.content h2{
-  padding:0;
-  margin:20px;
-}
-
-.content li{
-  margin-bottom:10px;
-}

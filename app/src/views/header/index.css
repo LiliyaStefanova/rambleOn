@@ -1,29 +1,25 @@
-ul.header li {
-    display:inline;
-    list-style-type:none;
-    margin:0;
-}
-
-ul.header {
-    background-color: #111111;
-    padding:0;
-}
-
-ul.header li a {
-    color: #FFF;
-    font-weight:bold;
-    text-decoration:none;
-    padding:20px;
-    display:inline-block;
+.header {
+    background-size: cover;
+    background: url("../../images/background_main.jpg") no-repeat;
+    height: 200px;
+    margin: auto;
+    width: 80%;
 }
 
 .link {
     color: #f1f1f1;
-    font-size:1.2em
+    font-size:1.2em;
+    text-decoration: none;
+
+}
+
+.navContainer {
+    list-style: none
 }
 
 .brandLink{
-    color:#f1f1f1
+    color:#f1f1f1;
+    text-decoration: none;
 }
 
 .navIcon{

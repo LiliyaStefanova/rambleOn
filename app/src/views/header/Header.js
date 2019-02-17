@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './index.css';
-import {Navbar, Nav, NavbarBrand, NavLink, NavItem} from 'reactstrap';
+import {Navbar, Nav, NavbarBrand, NavItem, NavLink} from 'reactstrap';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {library} from '@fortawesome/fontawesome-svg-core';
@@ -11,41 +11,36 @@ library.add(faCompass);
 
 const styles = {
     navBrand: {color: '#f1f1f1', fontSize:'1.8em'},
-    icon: {}
 };
 
-
-export default class Header extends Component {
-
-    constructor(props) {
-        super(props);
-    };
+export default class Header extends React.Component {
 
 render()
     {
     return (
-        <Navbar expand="md">
+        <div className="header">
+        <Navbar navbar>
             <NavbarBrand className="mr-auto" style={styles.navBrand}>
                 <FontAwesomeIcon icon="compass" className="navIcon"/>
                 <Link to='/' className="brandLink">Walk Planner</Link>
             </NavbarBrand>
-            <Nav pills fill horizontal="right">
-                <NavItem>
+            <Nav pills horizontal>
+                <NavItem className="navContainer">
                     <NavLink>
-                            <Link className='link' to='walk/create'>Create</Link>
+                            <Link to='/walk/create' className='link'>Create</Link>
                     </NavLink>
                 </NavItem>
-                <NavItem>
+                <NavItem className="navContainer">
                     <NavLink>
                             <Link to='/walks/all' className='link'>Find</Link>
                     </NavLink>
                 </NavItem>
-                <NavItem>
+                <NavItem className="navContainer">
                     <NavLink>
                             <Link to='/resources' className='link'>Resources</Link>
                     </NavLink>
                 </NavItem>
-                <NavItem>
+                <NavItem className="navContainer">
                     <NavLink>
                             <Link to='/contact' className='link'>Contact</Link>
                     </NavLink>
@@ -53,7 +48,7 @@ render()
             </Nav>
 
         </Navbar>
-
+        </div>
     );
     }
 };
@@ -66,11 +61,6 @@ Navbar.propTypes = {
     role: PropTypes.string,
     expand: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
-};
-
-NavbarBrand.propTypes = {
-    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
-    // pass in custom element to use
 };
 
 Nav.propTypes = {

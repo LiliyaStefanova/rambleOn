@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import '../App.css';
+import '../../App.css';
 import './index.css'
 import {Link} from 'react-router-dom';
 import {Container, Row, Col, Button, Card, CardTitle} from 'reactstrap';
 import {PropTypes} from 'prop-types';
 
-class Home extends Component {
+class Content extends Component {
 
     constructor(props) {
         super(props);
@@ -21,7 +21,7 @@ class Home extends Component {
             return <p>Something went wrong</p>
         }
         return (
-            <Container fluid className="containerStyle">
+            <Container fluid className="container">
                 <Row>
                     <Col xs="3">
                         <Card body>
@@ -53,4 +53,4 @@ Container.propTypes = {
     fluid: PropTypes.bool
 };
 
-export default Home;
+export default Content;

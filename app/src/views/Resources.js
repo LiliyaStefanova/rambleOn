@@ -1,13 +1,14 @@
 import React from 'react';
-import {CardGroup, Card, CardImg, CardBody, CardTitle, CardText, Button, Row, Col, CardDeck} from 'reactstrap';
-import './index.css'
+import {Card, CardBody, CardTitle, CardText, CardDeck} from 'reactstrap';
+import './home/index.css'
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCompass, faMapMarked, faSubway, faCloudSunRain, faHiking} from '@fortawesome/free-solid-svg-icons';
 
 library.add(faCompass, faMapMarked, faSubway, faCloudSunRain, faHiking);
 
-const Resources = () =>
+const Resources = (props) =>
+            <div>
             <CardDeck>
                 <Card>
                     <CardBody>
@@ -38,5 +39,6 @@ const Resources = () =>
                     </CardBody>
                 </Card>
             </CardDeck>
+            </div>
 
 export default Resources;

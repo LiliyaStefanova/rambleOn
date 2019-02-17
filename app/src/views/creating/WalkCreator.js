@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
-import '../App.css';
 import './index.css'
-import '../utils';
 import {Button, Form, FormGroup, Label, Input,Row, Col, FormFeedback} from 'reactstrap';
-import {createGuid} from "../utils";
+import {createGuid} from "../../utils";
 
 const initialState ={
             id:'',

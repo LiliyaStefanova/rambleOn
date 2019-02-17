@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import '../App.css';
 
 const items = [{task: 'Pack sleeping bag', status: 'checked'},
     {task: 'Load map on GPS', status: ''},
