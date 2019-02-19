@@ -15,6 +15,17 @@ app.use('/graphql', graphqlHTTP(req => ({
 
 //DB connection
 
-mongoose.connect('mongodb://localhost/graphql')
+mongoose.connect('mongodb://localhost/rambleon');   //TODO - need to create MongoDb collection
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error: '));
+db.once('open', function(){
+   console.log('Connected to Db');
+});
+
+//Start
+
+const server = app.listen(8080, () => {
+    console.log(`Server listening at ${server.address().port}`);
+});
 
 module.exports = app;
