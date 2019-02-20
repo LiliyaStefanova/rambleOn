@@ -24,7 +24,7 @@ render()
                 <FontAwesomeIcon icon="compass" className="navIcon"/>
                 <Link to='/' className="brandLink">Walk Planner</Link>
             </NavbarBrand>
-            <Nav pills horizontal>
+            <Nav pills>
                 <NavItem className="navContainer">
                     <NavLink>
                             <Link to='/walk/create' className='link'>Create</Link>

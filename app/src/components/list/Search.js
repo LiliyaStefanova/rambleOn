@@ -1,37 +1,35 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import {Form, FormGroup} from 'reactstrap';
 
-class Search extends  Component {
+export default class Search extends Component {
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            term:'',
-            searchResults:null,
-            selectedWalk:null,
-            error: null,
-            isLoading: false,
-        };
-
-        this.onSearchChange = this.onSearchChange.bind(this);
-        this.onSearchSubmit = this.onSearchSubmit.bind(this);
-
-    }
-
-    onSearchChange(event){
-        this.setState({term:event.target.value});
-    }
-
-    onSearchSubmit(event){
-        const {term} = this.state;
-        const cachedWalks =localStorage.getItem(term);
-        this.setState({searchResults:cachedWalks});
-        event.preventDefault();
+    componentDidMount(){
+        if(this.input){
+            this.input.focus();
+        }
     }
 
     render() {
+        const { value, onChange, onSubmit, children } = this.props;
+        return(
+            <Form onSubmit={onSubmit}>
+                <FormGroup>
+                <input type="search" name="search" value={value} onChange={onChange}
+                       ref={(node) => {
+                       this.input = node;
+                       }}/>
+                <button type="submit">{children}</button>
+                </FormGroup>
+            </Form>
+        )
     }
 
 }
 
-export default Search;
+Search.propTypes = {
+    value: PropTypes.string,
+    onChange: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
+    children: PropTypes.string.isRequired
+};

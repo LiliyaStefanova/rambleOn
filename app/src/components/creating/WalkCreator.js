@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './index.css'
-import {Button, Form, FormGroup, Label, Input,Row, Col, FormFeedback} from 'reactstrap';
+import {Button, Form, FormGroup, Label, Input,Row, Col, FormFeedback, InputGroupAddon} from 'reactstrap';
 import {createGuid} from "../../utils";
 
 const initialState ={
@@ -17,38 +17,41 @@ export default class WalkCreator extends Component{
     constructor(props){
         super(props);
         this.state = initialState;
-
+        this.addWalk = this.addWalk.bind(this);
+        this.cancel = this.cancel.bind(this);
         this.handleTitleChange = this.handleTitleChange.bind(this);
         this.handleStartChange = this.handleStartChange.bind(this);
         this.handleEndChange = this.handleEndChange.bind(this);
         this.handleDistanceChange = this.handleDistanceChange.bind(this);
         this.handleDateChange = this.handleDateChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleCancel = this.handleCancel.bind(this);
     }
 
     handleTitleChange(event){
-        console.log('Updating title');
         this.setState({title: event.target.value});
+        event.preventDefault();
     }
 
     handleStartChange(event){
         this.setState({start:event.target.value});
+        event.preventDefault();
     }
 
     handleEndChange(event){
         this.setState({end:event.target.value});
+        event.preventDefault();
     }
 
     handleDistanceChange(event){
         this.setState({distance:event.target.value});
+        event.preventDefault();
     }
 
     handleDateChange(event){
         this.setState({date:event.target.value})
+        event.preventDefault();
     }
 
-    handleSubmit(){
+    addWalk(){
         console.log('Saving to local storage');
         const guid = createGuid();
         this.setState({id: guid});
@@ -57,7 +60,7 @@ export default class WalkCreator extends Component{
 
     }
 
-    handleCancel(){
+    cancel(){
         this.setState(initialState);
     }
 
@@ -68,10 +71,11 @@ export default class WalkCreator extends Component{
 
     render(){
         return(
+            <div className="formContainer">
                 <Form className="form">
                     <FormGroup className="formGroup">
                         <Label for="title">Create a new walk</Label>
-                        <Input type="text" value={this.state.title} onChange={this.handleTitleChange}
+                        <Input type="text" value={this.state.title}
                                name="title" id="walkTitle" placeholder="Name"/>
                     </FormGroup>
                     <Row form>
@@ -91,14 +95,15 @@ export default class WalkCreator extends Component{
                         </Col>
                     </Row>
                     <Row>
-                        <Col md={4}>
+                        <Col md={6}>
                             <FormGroup className="formGroup">
-                                <Label for="length">Distance in km</Label>
-                                <Input type="text" value={this.state.distance} onChange={this.handleDistanceChange}
-                                       name="length" id="length" placeholder="Walk distance"/>
+                                <Label for="distance">Distance</Label>
+                                <Input type="number" value={this.state.distance} onChange={this.handleDistanceChange}
+                                       name="distance" id="length" placeholder="Walk distance" step="1"/>
+                                <InputGroupAddon addonType="append">km</InputGroupAddon>
                             </FormGroup>
                         </Col>
-                        <Col md={4}>
+                        <Col md={6}>
                             <FormGroup className="formGroup">
                                 <Label for="date">Date</Label>
                                 <Input type="date" value={this.state.date} onChange={this.handleDateChange}
@@ -108,14 +113,15 @@ export default class WalkCreator extends Component{
                         </Col>
                     </Row>
                     <FormGroup className="formGroup">
-                        <Button color="primary" active onClick={this.handleSubmit} className="formButton">
+                        <Button color="primary" active onClick={this.addWalk} className="formButton">
                             Create
                         </Button>{' '}
-                        <Button color="secondary" onClick={this.handleCancel} className="formButton">
+                        <Button color="secondary" onClick={this.cancel} className="formButton">
                             Cancel
                         </Button>
                     </FormGroup>
                 </Form>
+            </div>
         )
     }
 }
