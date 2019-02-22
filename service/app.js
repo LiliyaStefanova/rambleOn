@@ -10,12 +10,13 @@ const app = express();
 
 app.use('/graphql', graphqlHTTP(req => ({
     schema,
-    pretty: true
+    pretty: true,
+    graphiql: true
 })));
 
 //DB connection
 
-mongoose.connect('mongodb://localhost/rambleon');   //TODO - need to create MongoDb collection
+mongoose.connect('mongodb://localhost/rambleon');   //TODO - need to create MongoDb collections
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error: '));
 db.once('open', function(){
