@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Table} from 'reactstrap';
 import Search from './Search'
+import CheckList from '../walk/CheckList';
 
 export default class WalkList extends Component{
 
@@ -73,7 +74,9 @@ export default class WalkList extends Component{
                         </tbody>
                     </Table>
                 </div>
+                <CheckList/>
             </div>
+
         )
     }
 }

@@ -3,7 +3,7 @@ import {Switch, Route, HashRouter} from 'react-router-dom';
 import {Container} from 'reactstrap';
 import Header from './components/header/Header';
 import Content from './components/home/Content';
-import WalkDetails from './components/list/WalkDetails'
+import WalkDetails from './components/walk/WalkDetails'
 import WalkCreator from './components/creating/WalkCreator'
 import Resources from './components/resources/Resources'
 import Contact from './components/about/About';
