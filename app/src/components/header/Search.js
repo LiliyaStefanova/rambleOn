@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Form, FormGroup} from 'reactstrap';
+import {InputGroup, InputGroupAddon, Button, Input} from 'reactstrap';
 
 export default class Search extends Component {
 
@@ -13,15 +13,15 @@ export default class Search extends Component {
     render() {
         const { value, onChange, onSubmit, children } = this.props;
         return(
-            <Form onSubmit={onSubmit}>
-                <FormGroup>
-                <input type="search" name="search" value={value} onChange={onChange}
+            <InputGroup onSubmit={onSubmit}>
+                <Input type="search" name="search" value={value} onChange={onChange}
                        ref={(node) => {
-                       this.input = node;
+                           this.input = node;
                        }}/>
-                <button type="submit">{children}</button>
-                </FormGroup>
-            </Form>
+                <InputGroupAddon addonType="append">
+                    <Button type="submit" outline>{children}</Button>
+                </InputGroupAddon>
+            </InputGroup>
         )
     }
 
