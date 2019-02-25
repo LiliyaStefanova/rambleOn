@@ -79,6 +79,9 @@ export default class Header extends React.Component {
                     </Nav>
 
                 </Navbar>
+                <div className="credits">
+                    <span >Credit:<a className="link" href="https://www.flickr.com/photos/aevar/">Ævar Guðmundsson</a></span>
+                </div>
             </div>
         );
     }

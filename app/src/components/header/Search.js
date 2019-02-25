@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {InputGroup, InputGroupAddon, Button, Input} from 'reactstrap';
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faSearch} from '@fortawesome/free-solid-svg-icons';
 
+library.add(faSearch);
 export default class Search extends Component {
 
     componentDidMount(){
@@ -19,7 +23,9 @@ export default class Search extends Component {
                            this.input = node;
                        }}/>
                 <InputGroupAddon addonType="append">
-                    <Button type="submit" outline>{children}</Button>
+                    <Button type="submit" outline>
+                        <FontAwesomeIcon icon="search"/>
+                    </Button>
                 </InputGroupAddon>
             </InputGroup>
         )

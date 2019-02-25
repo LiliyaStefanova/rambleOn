@@ -1,11 +1,17 @@
 import {Table} from 'reactstrap';
 import React from 'react';
+import './index.css'
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faMapMarker, faCalendar} from '@fortawesome/free-solid-svg-icons';
+
+library.add(faMapMarker, faCalendar)
 
 const WalkCard = ({walk}) => {
-    const {desc, start, end, distance, date} = walk;
+    const {description, start, end, distance, date} = walk;
     return (
-        <div>
-            <h2>{desc}</h2>
+        <div className="walkCard">
+            <h2>{description}</h2>
             <Table>
                 <tr>
                     <th>Start</th>
@@ -23,6 +29,7 @@ const WalkCard = ({walk}) => {
                     <th>Date</th>
                     <td>{date}</td>
                 </tr>
+                <tr>Difficulty Level</tr>
             </Table>
         </div>
     );

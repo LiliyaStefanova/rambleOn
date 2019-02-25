@@ -14,3 +14,13 @@ export const createGuid = () =>{
 };
 
 const S4 = () => (((1+ Math.random())*0x10000)|0).toString(16).substring(1);
+
+export const splitInPairs = (list) => {
+    let listOfPairs = [];
+    for(let i = 0; i< list.length; i+2){
+        const pair = [list[i], list[i+1]];
+        listOfPairs.push(pair);
+    }
+
+    return listOfPairs;
+};

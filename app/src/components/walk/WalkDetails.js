@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import CheckList from "./CheckList";
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faMapMarker, faCalendar, faTasks} from '@fortawesome/free-solid-svg-icons';
 
+library.add(faMapMarker, faCalendar, faTasks);
 const linkList = [{link:'https://www.accuweather.com/en/gb/united-kingdom-weather', caption:'Weather'},
     {link:'http://www.nationalrail.co.uk/', caption:'Rail Transport'},
     {link:'http://www.trafficengland.com/', caption:'Traffic Information'}];
