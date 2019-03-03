@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
-const commentSchema = new Schema({
+const CommentSchema = new Schema({
     walkId: {
         type: mongoose.Schema.Types.ObjectId,
         required: true
@@ -12,4 +12,6 @@ const commentSchema = new Schema({
     }
 });
 
-export default mongoose.model('Comment', commentSchema);
+const Comment = mongoose.model("Comment", CommentSchema);
+
+export default Comment;
