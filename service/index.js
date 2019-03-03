@@ -1,35 +1,47 @@
-// import express from 'express';
-const express = require('express');
-// import graphqlHTTP from 'express-graphql';
-const graphqlHTTP = require('express-graphql');
-// import mongoose from 'mongoose';
-const mongoose = require('mongoose');
+import express from 'express';
+import expressGraphQL from 'express-graphql';
+import mongoose from 'mongoose';
+import bodyParser from "body-parser";
+import cors from "cors";
+import config from './config';
 
 import schema from './graphql';
 
 const app = express();
+const port = config.port;
+const db = config.db.uri;
+
+
+//DB
+mongoose
+  .connect(
+    db,
+    {
+      useCreateIndex: true,
+      useNewUrlParser: true
+    }
+  ).then(() => console.log("DB connected"))
+  .catch(err => console.log(err));
+
 
 //Create GraphQL server route
 
-app.use('/rambleOn', graphqlHTTP(req => ({
+app.use(
+  '/rambleOn',
+  cors(),
+  bodyParser.json(),
+  expressGraphQL({
     schema,
-    pretty: true,
     graphiql: true
-})));
+  })
+);
 
-//DB connection
-
-mongoose.connect('mongodb://localhost/rambleon');   //TODO - need to create MongoDb collections
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error: '));
-db.once('open', function(){
-   console.log('Connected to Db');
-});
 
 //Start
 
-const server = app.listen(8080, () => {
-    console.log(`Server listening at ${server.address().port}`);
+app.listen(port, () => {
+  //eslint-disable-next-line no-console
+    console.log(`Server listening on port ${port}`);
 });
 
 module.exports = app;
