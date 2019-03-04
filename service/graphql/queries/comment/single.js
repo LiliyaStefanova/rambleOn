@@ -3,12 +3,12 @@ import {
   GraphQLNonNull
 } from 'graphql';
 
-import WalkType from '../../types/walk';
+import CommentType from '../../types/comment';
 import getProjection from '../../getProjection';
-import WalkModel from '../../../models/Walk';
+import CommentModel from '../../../models/Comment';
 
 export default {
-  type: WalkType,
+  type: CommentType,
   args: {
     id: {
       name: 'id',
@@ -18,7 +18,7 @@ export default {
   resolve (root, params, options) {
     const projection = getProjection(options.fieldASTs[0]);
 
-    return WalkModel
+    return CommentModel
       .findById(params.id)
       .select(projection)
       .exec();

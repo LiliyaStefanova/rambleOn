@@ -1,15 +1,13 @@
 import {
     GraphQLInputObjectType,
     GraphQLString,
-    GraphQLScalarType,
     GraphQLFloat,
-    GraphQLList,
     GraphQLID,
     GraphQLNonNull
 } from 'graphql'
 
 export default new GraphQLInputObjectType({
-    name: 'WalkInbound',
+    name: 'WalkInput',
     fields:{
         _id: {
             type: new GraphQLNonNull(GraphQLID)
@@ -17,27 +15,26 @@ export default new GraphQLInputObjectType({
         name: {
             type: new GraphQLNonNull(GraphQLString)
         },
-        start: {
+        startLocation: {
             type: new GraphQLNonNull(GraphQLString)
         },
-        end: {
+        endLocation: {
             type: new GraphQLNonNull(GraphQLString)
         },
         distance: {
             type: new GraphQLNonNull(GraphQLFloat)
         },
-        date: {
-            type: new GraphQLNonNull(GraphQLScalarType)
+        difficulty: {
+            type: new GraphQLNonNull(GraphQLString)
+        },
+        startDate: {
+            type: new GraphQLNonNull(GraphQLString)
+        },
+        endDate: {
+            type: new GraphQLNonNull(GraphQLString)
         },
         notes: {
-            type: new GraphQLString
-        },
-        resources: {
-            type: GraphQLList
-        },
-        participants:{
-            type: GraphQLList
+            type: new GraphQLNonNull(GraphQLString)
         }
-
     }
 });

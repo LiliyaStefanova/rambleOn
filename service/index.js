@@ -3,13 +3,14 @@ import expressGraphQL from 'express-graphql';
 import mongoose from 'mongoose';
 import bodyParser from "body-parser";
 import cors from "cors";
-import config from './config';
+import config from 'config'
+
 
 import schema from './graphql';
 
 const app = express();
-const port = config.port;
-const db = config.db.uri;
+const db = config.get('db.uri');
+const port= config.get('server.port');
 
 
 //DB

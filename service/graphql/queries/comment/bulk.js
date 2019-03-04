@@ -2,17 +2,17 @@ import {
   GraphQLList
 } from 'graphql';
 
-import WalkType from '../../types/walk';
+import CommentType from '../../types/comment';
 import getProjection from '../../getProjection';
-import WalkModel from '../../../models/Walk';
+import CommentModel from '../../../models/comment';
 
 export default {
-  type: new GraphQLList(WalkType),
+  type: new GraphQLList(CommentType),
   args: {},
   resolve(root, params, options){
     const projection = getProjection(options.fieldASTs[0]);
 
-    return WalkModel
+    return CommentModel
       .find()
       .select(projection)
       .exec();
