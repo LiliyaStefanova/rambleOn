@@ -1,18 +1,7 @@
-import {
-    GraphQLObjectType,
-    GraphQLSchema
-} from 'graphql';
+import { mergeTypes } from "merge-graphql-schemas";
 
-import mutations from './mutations';
-import queries from './queries';
+import Walk from "./Walk";
 
-export default new GraphQLSchema({
-    query: new GraphQLObjectType({
-        name: 'Query',
-        fields: queries
-    }),
-    mutation: new GraphQLObjectType({
-        name: 'Mutation',
-        fields: mutations
-    })
-});
+const typeDefs = [Walk];
+
+export default mergeTypes(typeDefs, {all: true});

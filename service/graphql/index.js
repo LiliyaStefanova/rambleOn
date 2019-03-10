@@ -1,18 +1,11 @@
-import {
-    GraphQLObjectType,
-    GraphQLSchema,
-} from 'graphql';
+import { makeExecutableSchema } from 'graphql-tools';
 
-import mutations from './mutations';
-import queries from './queries';
+import typeDefs from './types';
+import resolvers from './resolvers';
 
-export default new GraphQLSchema({
-    query: new GraphQLObjectType({
-        name: 'Query',
-        fields: queries
-    }),
-    mutation: new GraphQLObjectType({
-        name: 'Mutation',
-        fields: mutations
-    })
+const schema = makeExecutableSchema({
+  typeDefs,
+  resolvers
 });
+
+export default schema;

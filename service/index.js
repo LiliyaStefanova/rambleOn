@@ -6,7 +6,7 @@ import cors from "cors";
 import config from 'config'
 
 
-import schema from './graphql';
+import schema from './graphql/';
 
 const app = express();
 const db = config.get('db.uri');
