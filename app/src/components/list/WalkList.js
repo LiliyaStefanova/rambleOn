@@ -39,19 +39,19 @@ class WalkList extends Component {
 
     render() {
         const {error} = this.state;
-        const pairsList = splitInPairs(dummyList);
+        // const pairsList = splitInPairs(dummyList);
         if (error) {
             return <p>Something went wrong</p>
         }
         return (
                 <div>
                     <Container>
-                        {pairsList.map(pair =>
-                        <Row>
-                            <Col><WalkCard walk={pair[0]}/></Col>
-                            <Col><WalkCard walk={pair[1]}/></Col>
-                        </Row>)
-                        }
+                        {/*{pairsList.map(pair =>*/}
+                        {/*<Row>*/}
+                            {/*<Col><WalkCard walk={pair[0]}/></Col>*/}
+                            {/*<Col><WalkCard walk={pair[1]}/></Col>*/}
+                        {/*</Row>)*/}
+                        {/*}*/}
                     </Container>
                 </div>
 

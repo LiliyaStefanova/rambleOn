@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, {Component} from 'react';
 import {Switch, Route, HashRouter} from 'react-router-dom';
 import {Container} from 'reactstrap';

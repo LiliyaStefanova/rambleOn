@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import './index.css';
 import {Nav, Navbar, NavbarBrand, NavItem, NavLink} from 'reactstrap';
@@ -19,33 +20,31 @@ export default class Header extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            term: '',
-            searchResults: null
         };
-        this.onSearchChange = this.onSearchChange.bind(this);
-        this.onSearchSubmit = this.onSearchSubmit.bind(this);
+        // this.onSearchChange = this.onSearchChange.bind(this);
+        // this.onSearchSubmit = this.onSearchSubmit.bind(this);
     }
 
-    onSearchChange(event) {
-        this.setState({term: event.target.value});
-    }
+    // onSearchChange(event) {
+    //     this.setState({term: event.target.value});
+    // }
 
-    onSearchSubmit(event) {
-        const {term} = this.state;
-        const cachedWalks = localStorage.getItem(term);
-        this.setState({searchResults: cachedWalks});
-        event.preventDefault();
-    }
+    // onSearchSubmit(event) {
+    //     const {term} = this.state;
+    //     const cachedWalks = localStorage.getItem(term);
+    //     this.setState({searchResults: cachedWalks});
+    //     event.preventDefault();
+    // }
 
 
     render() {
-        const {term, searchResults} = this.state;
+        // const {term} = this.state;
         return (
             <div className="header">
                 <Navbar navbar>
                     <NavbarBrand className="mr-auto" style={styles.navBrand}>
                         <FontAwesomeIcon icon="compass" className="navIcon"/>
-                        <Link to='/' className="brandLink">Walk Planner</Link>
+                        <Link to='/' className="brandLink">rambleOn</Link>
                     </NavbarBrand>
                     <Nav pills>
                         <NavItem className="navContainer">
@@ -70,9 +69,10 @@ export default class Header extends React.Component {
                         </NavItem>
                         <NavItem>
                             <Search
-                                value={term}
-                                onChange={this.onSearchChange}
-                                onSubmit={this.onSearchSubmit}>
+                                // value={term}
+                                // onChange={this.onSearchChange}
+                                // onSubmit={this.onSearchSubmit}
+                              >
                                 Search
                             </Search>
                         </NavItem>
@@ -80,12 +80,12 @@ export default class Header extends React.Component {
 
                 </Navbar>
                 <div className="credits">
-                    <span >Credit:<a className="link" href="https://www.flickr.com/photos/aevar/">Ævar Guðmundsson</a></span>
+                    <span >Credit:<a href="https://www.flickr.com/photos/aevar/">Ævar Guðmundsson</a></span>
                 </div>
             </div>
         );
     }
-};
+}
 
 Navbar.propTypes = {
     light: PropTypes.bool,
