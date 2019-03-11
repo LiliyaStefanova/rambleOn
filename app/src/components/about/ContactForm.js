@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, {Component} from 'react';
 import {Col, Form, FormGroup, Row, Label, Input,CustomInput, Button} from 'reactstrap';
 import './index.css'
@@ -36,6 +37,6 @@ export default class ContactForm extends Component {
                     </Col>
                 </FormGroup>
             </Form>
-    )};
+    )}
 
 }

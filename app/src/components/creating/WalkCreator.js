@@ -76,10 +76,9 @@ export default class WalkCreator extends Component {
   }
 
   addWalk () {
-    console.log('Saving to local storage')
     const guid = createGuid()
     this.setState({ id: guid })
-    const { id, title, start, end, distance, date } = this.state
+    const { title, start, end, distance, date } = this.state
     this.saveItemToLocalStorage(guid, { title, start, end, distance, date })
 
   }

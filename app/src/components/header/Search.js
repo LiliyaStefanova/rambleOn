@@ -1,8 +1,9 @@
+/* eslint-disable no-unused-vars */
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {InputGroup, InputGroupAddon, Button, Input} from 'reactstrap';
+import { InputGroup, InputGroupAddon, Button, Input } from 'reactstrap';
 import {library} from '@fortawesome/fontawesome-svg-core';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faSearch} from '@fortawesome/free-solid-svg-icons';
 
 library.add(faSearch);
@@ -15,7 +16,7 @@ export default class Search extends Component {
     }
 
     render() {
-        const { value, onChange, onSubmit, children } = this.props;
+        const { value, onChange, onSubmit } = this.props;
         return(
             <InputGroup onSubmit={onSubmit}>
                 <Input type="search" name="search" value={value} onChange={onChange}
