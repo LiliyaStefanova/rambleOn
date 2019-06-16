@@ -1,18 +1,25 @@
 export default `
   type Walk {
-    id: String!
+    _id: ID!
     name: String!
     startLocation: String!
     endLocation: String!
+    distance: Int!
+    difficulty: Int
+    startDate: String!
+    endDate: String!
+    summary: String
   }
   
   type Query {
-    walk(id: String!): Walk
+    walk(_id: ID!): Walk
     walks: [Walk]
   }
   
   type Mutation {
-    addWalk(id: String!, name: String!, startLocation: String!, endLocation: String!): Walk
+    addWalk(id: String!, name: String!, startLocation: String!, endLocation: String!,
+    distance: Int!, difficulty: Int, startDate: String!, endDate: String!, summary: String): Walk
+    
     removeWalk(id: String!): Walk
   }
 `;
