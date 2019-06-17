@@ -1,10 +1,8 @@
 import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
-const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const WalkSchema = new Schema({
-    _id: { type: ObjectId, required: true, unique: true },
     name: { type: String, required: true },
     startLocation: { type: String, required: true },
     endLocation: { type: String, required: true },
@@ -13,7 +11,12 @@ const WalkSchema = new Schema({
     startDate: { type: Date, required: true},
     endDate: {type: Date, required: true},
     summary: {type: String, required: false}
-});
+}, {collection: 'walks', timestamps: true });
+
+WalkSchema.virtual('id').get(function(){
+  return this._id;
+})
+
 
 const Walk = mongoose.model( "Walk", WalkSchema );
 

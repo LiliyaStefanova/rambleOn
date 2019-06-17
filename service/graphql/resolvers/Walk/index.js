@@ -20,8 +20,9 @@ export default {
     }
   },
   Mutation: {
-    addWalk: (root, { id, name, startLocation, endLocation }) => {
-      const newWalk = new Walk({id, name, startLocation, endLocation});
+    addWalk: (root, walkInput) => {
+      console.log(JSON.stringify(walkInput));
+      const newWalk = new Walk({...walkInput.newWalk});
 
       return new Promise((resolve, reject) => {
         newWalk.save((err, res) => {
