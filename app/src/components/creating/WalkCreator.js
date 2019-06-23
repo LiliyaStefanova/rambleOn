@@ -35,7 +35,7 @@ export default class WalkCreator extends Component {
     this.onChange = this.onChange.bind(this)
   }
 
-  onChange(event){
+  onChange (event) {
     const target = event.target;
     const value = target.value;
     const name = target.name;
@@ -45,21 +45,30 @@ export default class WalkCreator extends Component {
         [name]: value
       }
     }));
-    // event.preventDefault();
-    console.log(`State is: ${JSON.stringify(this.state)}`);
-
+    event.preventDefault();
   }
 
   addWalk () {
-    axios(`${PATH_BASE}/${PATH_GRAPHQL}?${QUERY}=${MUTATION_TYPE}`)
-      .then(result =>{
-        console.log(result.id);
-      })
-      .catch(error => this.setState({error}));
+    const currentWalk = JSON.stringify(this.state.walk);
+    const query = `mutation{addWalk(newWalk: ${currentWalk}{_id}}`;
+    console.log(`Query looks like: ${JSON.stringify(query)}`);
+    this.request(query);
+  }
+
+  request(query) {
+    console.log(`URL:${PATH_BASE}${PATH_GRAPHQL} `);
+    axios({
+      method: 'post',
+      url: `${PATH_BASE}${PATH_GRAPHQL}`,
+      headers: { 'Content-Type': 'application/json' },
+      data: JSON.stringify(query)
+    }).then(result => {
+      console.log(result.id);
+    }).catch(error => this.setState({ error }));
   }
 
   cancel () {
-    this.setState(initialWalk)
+    this.setState({walk: initialWalk})
   }
 
   render () {
@@ -68,7 +77,7 @@ export default class WalkCreator extends Component {
         <Form className="form">
           <FormGroup className="formGroup">
             <Label for="name">Name</Label>
-            <Input type="text" value={this.state.name} onChange={this.onChange}
+            <Input type="text" value={this.state.walk.name} onChange={this.onChange}
                    name="name" id="walkName" placeholder="e.g. Day hike in the Enchanted Forest"/>
           </FormGroup>
           <Row form>
