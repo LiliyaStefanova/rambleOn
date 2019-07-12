@@ -7,7 +7,6 @@ import PropTypes from 'prop-types'
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faCompass} from '@fortawesome/free-solid-svg-icons'
-import Search from './Search'
 
 library.add(faCompass)
 
@@ -15,29 +14,8 @@ const styles = {
   navBrand: { color: '#f1f1f1', fontSize: '1.8em' },
 }
 
-export default class Header extends React.Component {
+const Header = (props) =>
 
-  constructor (props) {
-    super(props)
-    this.state = {}
-    this.onSearchChange = this.onSearchChange.bind(this)
-    this.onSearchSubmit = this.onSearchSubmit.bind(this)
-  }
-
-  onSearchChange (event) {
-    this.setState({ term: event.target.value })
-  }
-
-  onSearchSubmit (event) {
-    const { term } = this.state
-    const cachedWalks = localStorage.getItem(term)
-    this.setState({ searchResults: cachedWalks })
-    event.preventDefault()
-  }
-
-  render () {
-    const { term } = this.state
-    return (
       <div className="header">
         <Navbar navbar="true">
           <NavbarBrand className="mr-auto" style={styles.navBrand}>
@@ -47,12 +25,12 @@ export default class Header extends React.Component {
           <Nav pills>
             <NavItem className="navContainer">
               <NavLink>
-                <Link to='/walk/create' className='link'>Add</Link>
+                <Link to='/walks/all' className='link'>My Walks</Link>
               </NavLink>
             </NavItem>
             <NavItem className="navContainer">
               <NavLink>
-                <Link to='/walks/all' className='link'>Manage</Link>
+                <Link to='/walk/create' className='link'>Plan New</Link>
               </NavLink>
             </NavItem>
             <NavItem className="navContainer">
@@ -65,24 +43,9 @@ export default class Header extends React.Component {
                 <Link to='/contact' className='link'>About</Link>
               </NavLink>
             </NavItem>
-            <NavItem>
-              <Search
-                value={term}
-                onChange={this.onSearchChange}
-                onSubmit={this.onSearchSubmit}>
-                Search
-              </Search>
-            </NavItem>
           </Nav>
-
         </Navbar>
-        <div className="credits">
-          <span>Credit:<a href="https://www.flickr.com/photos/aevar/">Ævar Guðmundsson</a></span>
-        </div>
       </div>
-    )
-  }
-}
 
 Navbar.propTypes = {
   light: PropTypes.bool,
@@ -105,4 +68,6 @@ Nav.propTypes = {
   navbar: PropTypes.bool,
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
 }
+
+export default Header;
 

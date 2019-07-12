@@ -1,9 +1,6 @@
-.container{
-    margin: auto;
-    background-color: #F2F2F2;
-}
-
 .wrapper{
-    height: 100%;
+    margin: auto;
+    width: 80%;
+    height: 100%
 }
 

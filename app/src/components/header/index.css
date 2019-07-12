@@ -1,17 +1,22 @@
 .header {
     background-size: cover;
-    background: url("../../images/moss.png") no-repeat;
-    height: 150px;
+    background-color: #F2F2F2;
+    height: 50px;
     margin: auto;
     width: 80%;
+    border-style: none none solid none;
+    border-width: 1px;
+    border-color:#BA6222
 }
 
 .link {
-    color: #f1f1f1;
-    font-size:1.2em;
-    font-weight: bold;
+    color:  #E49135;
+    font-size:1.3em;
     text-decoration: none;
+}
 
+a:hover {
+    color: #BA6222;
 }
 
 .navContainer {
@@ -19,19 +24,12 @@
 }
 
 .brandLink{
-    color:#f1f1f1;
+    color: 	#BA6222;
     text-decoration: none;
 }
 
 .navIcon{
-    color: #f1f1f1;
+    color: 	#BA6222;
     size:1em;
     margin-right:3px
-}
-
-.credits{
-    color:#f2f2f2;
-    margin-right:10px;
-    text-align: right;
-    margin-top: 60px;
 }

@@ -1,3 +1,11 @@
-import resolvers from './Walk'
+import walkResolvers from './Walk'
+import { GraphQLDate } from 'graphql-iso-date';
 
-export default resolvers;
+const customScalarResolver = {
+  Date: GraphQLDate
+}
+
+export default [
+  walkResolvers,
+  customScalarResolver
+];

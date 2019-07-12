@@ -8,20 +8,20 @@ import WalkDetails from './components/walk/WalkDetails'
 import WalkCreator from './components/creating/WalkCreator'
 import Resources from './components/resources/Resources'
 import Contact from './components/about/About';
-import WalkList from "./components/list/WalkList";
+import MyWalks from "./components/list/MyWalks";
 import './App.css'
 
 class App extends Component{
     render(){
         return(
             <HashRouter>
-              <div className="wrapper">
+              <div className='wrapper'>
                 <Header/>
                 <Container>
                   <Switch>
                     <Route exact path='/' component={Content}/>
                     <Route path='/walk/create' component={WalkCreator}/>
-                    <Route path='/walks/all' component={WalkList}/>
+                    <Route path='/walks/all' component={MyWalks}/>
                     <Route path='/walk/details' component={WalkDetails}/>
                     <Route path='/resources' component={Resources}/>
                     <Route path='/contact' component={Contact}/>

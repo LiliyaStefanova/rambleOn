@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import '../../App.css';
 import './index.css'
 import { Container } from 'reactstrap';
-import WalkList  from '../list/WalkList'
+import MyWalks  from '../list/MyWalks'
 import {PropTypes} from 'prop-types';
 
 
@@ -22,7 +22,7 @@ class Content extends Component {
             return <p>Something went wrong</p>
         }
         return(
-            <WalkList/>
+            <MyWalks/>
         )
 
     }

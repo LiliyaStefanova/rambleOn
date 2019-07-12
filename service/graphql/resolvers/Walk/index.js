@@ -1,10 +1,11 @@
 import Walk from "../../../models/Walk";
 
-export default {
+const walkResolvers = {
   Query: {
     walk: (root, args) => {
+      const id = args.id;
       return new Promise((resolve, reject) => {
-          Walk.findOne(args).exec((err, res) => {
+          Walk.findById(id).exec((err, res) => {
             err ? reject(err): resolve(res);
           });
       });
@@ -39,3 +40,5 @@ export default {
     }
   }
 };
+
+export  default walkResolvers;

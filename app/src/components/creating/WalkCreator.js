@@ -9,18 +9,15 @@ const initialWalk = {
   name: '',
   startLocation: '',
   endLocation: '',
-  distance: '',
-  difficulty: '',
   startDate: '',
   endDate: '',
+  distance: '',
+  difficulty: '',
   summary: ''
 }
 
-const PATH_BASE = 'localhost:8080';
+const PATH_BASE = 'http://localhost:8080';
 const PATH_GRAPHQL = '/rambleOn';
-const QUERY = 'query';
-const MUTATION_TYPE = 'mutation';
-const QUERY_TYPE = 'query';
 
 export default class WalkCreator extends Component {
 
@@ -49,21 +46,35 @@ export default class WalkCreator extends Component {
   }
 
   addWalk () {
-    const currentWalk = JSON.stringify(this.state.walk);
-    const query = `mutation{addWalk(newWalk: ${currentWalk}{_id}}`;
-    console.log(`Query looks like: ${JSON.stringify(query)}`);
-    this.request(query);
+    let {name, startLocation, endLocation, startDate, endDate, distance, difficulty, summary } = this.state.walk;
+    const mutation = `
+       mutation{
+           addWalk(newWalk:{
+             name:"${name}",
+             startLocation:"${startLocation}",
+             endLocation:"${endLocation}",
+             startDate: "${startDate}",
+             endDate:"${endDate}",
+             distance:${distance},
+             difficulty:${difficulty},
+             summary:"${summary}"
+            }
+           ){id} 
+         }
+       `
+    this.request(mutation);
   }
 
-  request(query) {
-    console.log(`URL:${PATH_BASE}${PATH_GRAPHQL} `);
+  request(query){
+    const finalQuery = {query: query};
+    console.log(`Final query looks like: ${JSON.stringify(finalQuery)}`);
     axios({
       method: 'post',
       url: `${PATH_BASE}${PATH_GRAPHQL}`,
       headers: { 'Content-Type': 'application/json' },
-      data: JSON.stringify(query)
+      data: finalQuery
     }).then(result => {
-      console.log(result.id);
+      console.log(result.data.addWalk.id);
     }).catch(error => this.setState({ error }));
   }
 

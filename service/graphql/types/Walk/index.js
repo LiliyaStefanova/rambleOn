@@ -1,4 +1,7 @@
 export default `
+
+  scalar Date
+
   type Walk {
     id: ID
     name: String!
@@ -6,8 +9,8 @@ export default `
     endLocation: String!
     distance: Int!
     difficulty: Int
-    startDate: String!
-    endDate: String!
+    startDate: Date!
+    endDate: Date!
     summary: String
   }
   
@@ -17,8 +20,8 @@ export default `
     endLocation: String!
     distance: Int!
     difficulty: Int
-    startDate: String!
-    endDate: String!
+    startDate: Date!
+    endDate: Date!
     summary: String 
   }
   
@@ -29,7 +32,6 @@ export default `
   
   type Mutation {
     addWalk(newWalk: WalkInput): Walk
-    
     removeWalk(id: String!): Walk
   }
 `;

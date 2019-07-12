@@ -1,5 +1,5 @@
 String.prototype.hashCode = function () {
-    var hash = 0, i, chr;
+    let hash = 0, i, chr;
     if(this.length === 0) return hash;
     for(i = 0; i < this.length; i++){
         chr = this.charCodeAt(i);
@@ -9,18 +9,14 @@ String.prototype.hashCode = function () {
     return hash;
 };
 
-export const createGuid = () =>{
-    return (S4() + S4() + "-" + S4() + "-4" + S4().substr(0,3) + "-" + S4() + "-" + S4() + S4() + S4()).toLowerCase();
+export const splitInPairs = (list) => {
+    let listOfPairs = [];
+    for(let i = 0; i< list.length; i+2){
+        const pair = [list[i], list[i+1]];
+        listOfPairs.push(pair);
+    }
+    const finalPair = [list[list.length-1], list[list.length-2]];
+    listOfPairs.push(finalPair);
+
+    return listOfPairs;
 };
-
-const S4 = () => (((1+ Math.random())*0x10000)|0).toString(16).substring(1);
-
-// export const splitInPairs = (list) => {
-//     let listOfPairs = [];
-//     for(let i = 0; i< list.length; i+2){
-//         const pair = [list[i], list[i+1]];
-//         listOfPairs.push(pair);
-//     }
-//
-//     return listOfPairs;
-// };

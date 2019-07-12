@@ -8,10 +8,10 @@ import {faMapMarker, faCalendar} from '@fortawesome/free-solid-svg-icons';
 library.add(faMapMarker, faCalendar)
 
 const WalkCard = ({walk}) => {
-    const {description, start, end, distance, difficulty, startDate, endDate } = walk;
+    const {name, start, end, distance, difficulty, startDate, endDate } = walk;
     return (
         <div className="walkCard">
-            <h2>{description}</h2>
+            <h2>{name}</h2>
             <Table>
                 <tr>
                     <th>Start</th>
