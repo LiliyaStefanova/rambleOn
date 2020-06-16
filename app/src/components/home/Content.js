@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import '../../App.css';
 import './index.css'
 import { Container } from 'reactstrap';
 import MyWalks  from '../list/MyWalks'

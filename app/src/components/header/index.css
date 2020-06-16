@@ -1,22 +1,22 @@
 .header {
     background-size: cover;
-    background-color: #F2F2F2;
+    background-color:  #2ecc71 ;
     height: 50px;
     margin: auto;
-    width: 80%;
+    width: 100%;
     border-style: none none solid none;
     border-width: 1px;
-    border-color:#BA6222
+    border-color:#2ecc71
 }
 
 .link {
-    color:  #E49135;
+    color:  #ffffff;
     font-size:1.3em;
     text-decoration: none;
 }
 
 a:hover {
-    color: #BA6222;
+    color: #ffffff;
 }
 
 .navContainer {
@@ -24,12 +24,12 @@ a:hover {
 }
 
 .brandLink{
-    color: 	#BA6222;
+    color: 	#ffffff;
     text-decoration: none;
 }
 
 .navIcon{
-    color: 	#BA6222;
+    color: 	#ffffff;
     size:1em;
     margin-right:3px
 }

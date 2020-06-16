@@ -8,7 +8,6 @@ library.add(faMapMarker, faCalendar)
 
 const WalkCard = ({walk} = walk) => {
     const {name, startLocation, endLocation, distance, difficulty, startDate, endDate } = walk;
-    console.log(`Walk looks like: ${JSON.stringify(walk)}`);
     return (
         <div className="walkCard">
             <h2>{name}</h2>
@@ -34,7 +33,6 @@ const WalkCard = ({walk} = walk) => {
                 </tr>
               </tbody>
             </Table>
-            <br/>
         </div>
     );
 };

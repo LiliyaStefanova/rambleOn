@@ -9,13 +9,12 @@ import WalkCreator from './components/creating/WalkCreator'
 import Resources from './components/resources/Resources'
 import Contact from './components/about/About';
 import MyWalks from "./components/list/MyWalks";
-import './App.css'
 
 class App extends Component{
     render(){
         return(
             <HashRouter>
-              <div className='wrapper'>
+              <div>
                 <Header/>
                 <Container>
                   <Switch>

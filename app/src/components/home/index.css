@@ -3,9 +3,7 @@
 }
 
 .container {
-    background-color: #F2F2F2;
-    width: 80%;
-    height:100%;
+    flex: auto; 
     padding: 20px;
 }
 

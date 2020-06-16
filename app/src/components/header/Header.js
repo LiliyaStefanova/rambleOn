@@ -11,7 +11,7 @@ import {faCompass} from '@fortawesome/free-solid-svg-icons'
 library.add(faCompass)
 
 const styles = {
-  navBrand: { color: '#f1f1f1', fontSize: '1.8em' },
+  navBrand: { color: '#2ecc71', fontSize: '1.8em' },
 }
 
 const Header = (props) =>
