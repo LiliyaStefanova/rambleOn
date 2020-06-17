@@ -62,7 +62,7 @@ class MyWalks extends Component {
     }
 
     render(){
-        const {pairs, loading, error} = this.state;
+        const { loading, error} = this.state;
         if (error) {
             return <Alert color='danger'>Something went wrong</Alert>
         }

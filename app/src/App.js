@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import {Switch, Route, HashRouter} from 'react-router-dom';
 import {Container} from 'reactstrap';
 import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
 import Content from './components/home/Content';
 import WalkDetails from './components/walk/WalkDetails'
 import WalkCreator from './components/creating/WalkCreator'
@@ -26,6 +27,7 @@ class App extends Component{
                     <Route path='/contact' component={Contact}/>
                   </Switch>
                 </Container>
+                <Footer/>
               </div>
             </HashRouter>
         )

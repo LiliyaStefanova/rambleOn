@@ -1,6 +1,5 @@
 .walkCard{
-    border: 1px solid #000;
-    border-radius: 10px;
     margin: auto;
-    padding: 10px
+    padding: 10px;
+    background-color: #a2d9ce;
 }

@@ -3,12 +3,8 @@
 }
 
 .container {
-    flex: auto; 
+    flex: 2;
     padding: 20px;
-}
-
-.cardGroup{
-    display:inline-block;
 }
 
 
