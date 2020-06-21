@@ -11,27 +11,30 @@ import NewHike from "./components/hikes/NewHike";
 import Resources from "./pages/resources/Resources";
 import Contact from "./pages/about/About";
 import HikeList from "./components/hikes/HikeList";
+import HikeState from "./context/hike/HikeState";
 
 const App = () => {
   return (
-    <HashRouter>
-      <div className="page-container">
-        <Header />
-        <Container className="content-wrap">
-          <Switch>
-            <Route exact path="/" component={Content} />
-            <Route path="/walk/create" component={NewHike} />
-            <Route path="/walks/all" component={HikeList} />
-            <Route path="/walk/details" component={HikeItemDetails} />
-            <Route path="/resources" component={Resources} />
-            <Route path="/contact" component={Contact} />
-          </Switch>
-        </Container>
-        <div className="footer">
-          <Footer />
+    <HikeState>
+      <HashRouter>
+        <div className="page-container">
+          <Header />
+          <Container className="content-wrap">
+            <Switch>
+              <Route exact path="/" component={Content} />
+              <Route path="/walk/create" component={NewHike} />
+              <Route path="/walks/all" component={HikeList} />
+              <Route path="/walk/details" component={HikeItemDetails} />
+              <Route path="/resources" component={Resources} />
+              <Route path="/contact" component={Contact} />
+            </Switch>
+          </Container>
+          <div className="footer">
+            <Footer />
+          </div>
         </div>
-      </div>
-    </HashRouter>
+      </HashRouter>
+    </HikeState>
   );
 };
 

@@ -1,9 +1,11 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import './index.css'
 import {Button, Col, Form, FormFeedback, FormGroup, Input, InputGroup, InputGroupAddon, Label, Row} from 'reactstrap'
 import InformationalModal from '../common/modals/InformationalModal'
 import DifficultyLevels from './DifficultyLevels'
+import HikeContext from '../../context/hike/hikeContext';
 import axios from 'axios';
+import { UPDATE_HIKE } from '../../context/types'
 
 const initialHike = {
   name: '',
@@ -21,57 +23,41 @@ const PATH_GRAPHQL = '/rambleOn';
 
 const NewHike = () => {
 
-  const [hike, setHike] = useState([]);
-  const [error, setError] = useState([]);
+  const hikeContext = useContext(HikeContext);
+  const [hike, setHike] = useState(initialHike);
+
+  const { current, addHike, updateHike, setCurrent, clearCurrent, error } = hikeContext;
 
   const onChange  = (event) => {
     const target = event.target;
     const value = target.value;
     const name = target.name;
     setHike({[name]: value})
-    event.preventDefault();
   }
 
-  const addWalk = () => {
-    let {name, startLocation, endLocation, startDate, endDate, distance, difficulty, summary } = hike;
-    const mutation = `
-       mutation{
-           addWalk(newWalk:{
-             name:"${name}",
-             startLocation:"${startLocation}",
-             endLocation:"${endLocation}",
-             startDate: "${startDate}",
-             endDate:"${endDate}",
-             distance:${distance},
-             difficulty:${difficulty},
-             summary:"${summary}"
-            }
-           ){id} 
-         }
-       `
-    request(mutation);
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if(current === null){
+      addHike(hike);
+    } else {
+      updateHike(hike);
+    }
+    if(error === 'Hike already exists'){
+      // TODO - sort out alerts and notifications
+    }
+    setCurrent(hike);
+    setHike(initialHike);
   }
 
-  const request = (query) => {
-    const finalQuery = {query: query};
-    console.log(`Final query looks like: ${JSON.stringify(finalQuery)}`);
-    axios({
-      method: 'post',
-      url: `${PATH_BASE}${PATH_GRAPHQL}`,
-      headers: { 'Content-Type': 'application/json' },
-      data: finalQuery
-    }).then(result => {
-      console.log(result.data.addWalk.id);
-    }).catch(error => setError(error));
-  }
-
+  
   const cancel = () => {
+    clearCurrent();
     setHike(initialHike);
   }
 
     return (
       <div className="formContainer">
-        <Form className="form">
+        <Form className="form" onSubmit={onSubmit}>
           <FormGroup className="formGroup">
             <Label for="name">Name</Label>
             <Input type="text" value={hike.name} onChange={onChange}
@@ -144,7 +130,7 @@ const NewHike = () => {
                    name="summary" id="summary"/>
           </FormGroup>
           <FormGroup className="formGroup">
-            <Button color="primary" active onClick={addWalk} className="formButton">
+            <Button color="primary" active onClick={onSubmit} className="formButton">
               Create
             </Button>{' '}
             <Button color="secondary" onClick={cancel} className="formButton">
