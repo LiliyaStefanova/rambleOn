@@ -6,7 +6,7 @@ import {faMapMarker, faCalendar} from '@fortawesome/free-solid-svg-icons';
 
 library.add(faMapMarker, faCalendar)
 
-const WalkCard = ({walk} = walk) => {
+const HikeItem = ({walk} = walk) => {
     const {name, startLocation, endLocation, distance, difficulty, startDate, endDate } = walk;
     return (
         <div className="walkCard">
@@ -37,4 +37,4 @@ const WalkCard = ({walk} = walk) => {
     );
 };
 
-export default WalkCard;
+export default HikeItem;

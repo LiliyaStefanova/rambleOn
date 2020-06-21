@@ -19,7 +19,7 @@ const initialWalk = {
 const PATH_BASE = 'http://localhost:8080';
 const PATH_GRAPHQL = '/rambleOn';
 
-export default class WalkCreator extends Component {
+export default class NewHike extends Component {
 
   constructor (props) {
     super(props)

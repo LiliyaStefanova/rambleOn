@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./index.css";
 import { Container, Jumbotron } from "reactstrap";
-import MyWalks from "../list/MyWalks";
+import HikeList from "../../components/hikes/HikeList";
 import { PropTypes } from "prop-types";
 
 class Content extends Component {
@@ -21,9 +21,11 @@ class Content extends Component {
     return (
       <div>
         <Jumbotron fluid>
-           <img src="../../images/moss.png"/>
+          <Container fluid>
+            <img src="../../images/moss.png" />
+          </Container>
         </Jumbotron>
-        <MyWalks />
+        <HikeList />
       </div>
     );
   }

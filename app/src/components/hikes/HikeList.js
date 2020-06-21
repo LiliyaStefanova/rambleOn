@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
-import WalkCard from './WalkCard';
+import HikeItem from './HikeItem';
 import {Col, Container, Row, Alert } from 'reactstrap';
 import { Spinner } from 'reactstrap';
-import {splitInPairs} from '../../utils';
 import axios from 'axios';
 
 const PATH_BASE = 'http://localhost:8080';
 const PATH_GRAPHQL = '/rambleOn';
 
-class MyWalks extends Component {
+class HikeList extends Component {
     constructor(props) {
         super(props);
 
@@ -78,7 +77,7 @@ class MyWalks extends Component {
                     <Container >{
                         this.state.walkList.map( walk =>                       
                         <Row style={{marginBottom: 10}}>
-                            <Col><WalkCard walk={walk}/></Col>
+                            <Col><HikeItem walk={walk}/></Col>
                         </Row>)
                         }
                     </Container>
@@ -90,5 +89,5 @@ class MyWalks extends Component {
 }
 
 
-export default MyWalks;
+export default HikeList;
 

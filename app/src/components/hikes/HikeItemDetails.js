@@ -10,7 +10,7 @@ const linkList = [{link:'https://www.accuweather.com/en/gb/united-kingdom-weathe
     {link:'http://www.trafficengland.com/', caption:'Traffic Information'}];
 
 
-class WalkDetails extends Component{
+class HikeItemDetails extends Component{
 
     constructor(props){
         super(props);
@@ -79,4 +79,4 @@ const Comments = (props) =>
     </div>
 
 
-export default WalkDetails;
+export default HikeItemDetails;
