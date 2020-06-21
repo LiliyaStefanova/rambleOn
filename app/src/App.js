@@ -15,9 +15,9 @@ import HikeList from "./components/hikes/HikeList";
 const App = () => {
   return (
     <HashRouter>
-      <div>
+      <div className="page-container">
         <Header />
-        <Container>
+        <Container className="content-wrap">
           <Switch>
             <Route exact path="/" component={Content} />
             <Route path="/walk/create" component={NewHike} />
@@ -27,7 +27,9 @@ const App = () => {
             <Route path="/contact" component={Contact} />
           </Switch>
         </Container>
-        <Footer />
+        <div className="footer">
+          <Footer />
+        </div>
       </div>
     </HashRouter>
   );
