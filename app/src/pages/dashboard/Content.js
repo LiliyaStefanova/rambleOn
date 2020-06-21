@@ -1,20 +1,13 @@
-import React, { Component } from "react";
+import React, { useState} from "react";
 import "./index.css";
 import { Container, Jumbotron } from "reactstrap";
 import HikeList from "../../components/hikes/HikeList";
 import { PropTypes } from "prop-types";
 
-class Content extends Component {
-  constructor(props) {
-    super(props);
+const Content = () => {
 
-    this.state = {
-      error: null,
-    };
-  }
+    const [error, setError] = useState(null);
 
-  render() {
-    const { error } = this.state;
     if (error) {
       return <p>Something went wrong</p>;
     }
@@ -29,7 +22,6 @@ class Content extends Component {
       </div>
     );
   }
-}
 
 Container.propTypes = {
   fluid: PropTypes.bool,

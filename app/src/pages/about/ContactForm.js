@@ -1,10 +1,9 @@
 /* eslint-disable no-unused-vars */
-import React, {Component} from 'react';
+import React from 'react';
 import {Col, Form, FormGroup, Row, Label, Input,CustomInput, Button} from 'reactstrap';
 import './index.css'
 
-export default class ContactForm extends Component {
-    render() {
+const ContactForm = () => {
         return (
             <Form>
                 <Row form>
@@ -39,4 +38,5 @@ export default class ContactForm extends Component {
             </Form>
     )}
 
-}
+export default ContactForm;
+

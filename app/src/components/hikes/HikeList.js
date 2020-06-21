@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useState, useEffect} from 'react';
 import HikeItem from './HikeItem';
 import {Col, Container, Row, Alert } from 'reactstrap';
 import { Spinner } from 'reactstrap';
@@ -7,22 +7,14 @@ import axios from 'axios';
 const PATH_BASE = 'http://localhost:8080';
 const PATH_GRAPHQL = '/rambleOn';
 
-class HikeList extends Component {
-    constructor(props) {
-        super(props);
+const HikeList = () => {
 
-        this.state = {
-            walkList: [],
-            pairs:[],
-            error: null,
-            loading: true
-        };
-        // this.getWalks = this.getWalks.bind(this);
-        this.request = this.request.bind(this);
-    }
+    const [hikes, setHikes] = useState([]);
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(true);
 
-    handleError(error){
-        this.setState({ error });
+    const handleError = (error) => {
+        this.setError(error);
     }
 
     // handleResponse(response){
@@ -37,7 +29,7 @@ class HikeList extends Component {
     //     return this.request(query);
     // }
 
-    request(query){
+    const request = (query) => {
         const finalQuery = {query: query}
         console.log(`Final query looks like: ${JSON.stringify(finalQuery)}`);
         return axios({
@@ -49,19 +41,18 @@ class HikeList extends Component {
           .catch(error => {return error;});
     }
 
-    componentDidMount() {
+    useEffect(() => {
         const query = `query{walks{id,name,startLocation,endLocation,startDate,endDate,distance,difficulty}}`;
         //The list of walks will be fetched from the back end here
-        this.request(query).then((result) => {
+        request(query)
+        .then((result) => {
             const walkList = result.data.walks;
-            this.setState({walkList: walkList, loading: false});
+            setHikes(walkList);
+            setLoading(false);
 
-        }).catch(err => this.setState({error: err}));
-   
-    }
+        }).catch(err => setError(err));
+    }, []);
 
-    render(){
-        const { loading, error} = this.state;
         if (error) {
             return <Alert color='danger'>Something went wrong</Alert>
         }
@@ -75,9 +66,9 @@ class HikeList extends Component {
                           <Spinner type="grow" color="dark" />
                     </div>:
                     <Container >{
-                        this.state.walkList.map( walk =>                       
+                        hikes.map( hike =>                       
                         <Row style={{marginBottom: 10}}>
-                            <Col><HikeItem walk={walk}/></Col>
+                            <Col><HikeItem hike={hike}/></Col>
                         </Row>)
                         }
                     </Container>
@@ -86,8 +77,6 @@ class HikeList extends Component {
 
         )
     }
-}
-
 
 export default HikeList;
 

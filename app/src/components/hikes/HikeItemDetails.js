@@ -1,5 +1,4 @@
-import React, {Component} from 'react';
-import CheckList from "./CheckList";
+import React, {useState} from 'react';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faMapMarker, faCalendar, faTasks} from '@fortawesome/free-solid-svg-icons';
@@ -10,18 +9,11 @@ const linkList = [{link:'https://www.accuweather.com/en/gb/united-kingdom-weathe
     {link:'http://www.trafficengland.com/', caption:'Traffic Information'}];
 
 
-class HikeItemDetails extends Component{
+const HikeItemDetails = () => {
 
-    constructor(props){
-        super(props);
-        this.state = {
-            hyperlinks:linkList
-        };
-    }
+    const [hyperlinks, setHyperlinks] = useState(linkList);
 
-    render(){
-        const {hyperlinks} = this.state;
-        return (
+    return (
             <div>
                 {/*<CheckList items={tasks}/>*/}
                 <Details/>
@@ -34,8 +26,6 @@ class HikeItemDetails extends Component{
         )
 
     }
-
-}
 
 
 

@@ -1,46 +1,35 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import { ListGroup, ListGroupItem } from 'reactstrap';
 
 const items = [{task: 'Pack sleeping bag', status: 'checked'},
     {task: 'Load map on GPS', status: ''},
     {task: 'Buy provisions', status: ''}];
 
-class CheckList extends Component {
+const CheckList = (props) => {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            tasks: items
-        };
-
-        this.onAdd = this.onAdd.bind(this);
-        this.onDelete = this.onDelete.bind(this);
-    };
+    const [tasks, setTasks] = useState([]);
 
 
-    onAdd(task) {
+     const onAdd = (task) => {
         const taskEntry = {keyID: task.hashCode(), task, checked: ""};
-        const updatedTasks = this.state.tasks.push(taskEntry);
-        this.setState({tasks: updatedTasks})
+        const updatedTasks = tasks.push(taskEntry);
+        setTasks(updatedTasks);
     }
 
-    onDelete(id) {
-
-        const {tasks} = this.state;
+    const onDelete = (id) => {
         const isNotId = item => item.keyID !== id;
         const updatedTasks = tasks.filter(isNotId);
-        this.setState({tasks: updatedTasks});
+        setTasks(updatedTasks);
     }
 
-    render() {
-        return (
+    return (
             <div className="container">
                 <ListGroup>
-                    {this.state.tasks.map(item =>
+                    {tasks.map(item =>
                         <ListGroupItem>
                             <div key={item.keyID}>
                                 <label><input type="checkbox" checked="{item.status}"/>{item.task}</label>
-                                <button className="" onClick={this.onDelete}>x</button>
+                                <button className="" onClick={onDelete}>x</button>
                             </div>
                         </ListGroupItem>
                     )}
@@ -48,7 +37,6 @@ class CheckList extends Component {
             </div>
 
         );
-    }
 
 }
 
