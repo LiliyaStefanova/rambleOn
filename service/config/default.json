@@ -1,0 +1,10 @@
+{
+	"db": {
+		"user": "elster",
+		"pass": "elstere903",
+		"uri": "mongodb+srv://elster:elstere903@sandbox-ksddg.mongodb.net/test?retryWrites=true"
+	},
+	"server": {
+		"port": 8080
+	}
+}
