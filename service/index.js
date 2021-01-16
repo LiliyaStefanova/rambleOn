@@ -1,5 +1,5 @@
 import express from 'express';
-import expressGraphQL from 'express-graphql';
+import { graphqlHTTP } from 'express-graphql';
 import mongoose from 'mongoose';
 import bodyParser from "body-parser";
 import cors from "cors";
@@ -31,7 +31,7 @@ app.use(
   '/rambleOn',
   cors(),
   bodyParser.json(),
-  expressGraphQL({
+  graphqlHTTP({
     schema,
     graphiql: true
   })

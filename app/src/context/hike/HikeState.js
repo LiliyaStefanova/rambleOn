@@ -5,10 +5,10 @@ import hikeReducer from './hikeReducer';
 import {
     ADD_HIKE,
     GET_HIKES,
-    DELETE_HIKE,
-    UPDATE_HIKE,
-    GET_HIKE_DETAILS,
-    SET_LOADING,
+    // DELETE_HIKE,
+    // UPDATE_HIKE,
+    // GET_HIKE_DETAILS,
+    // SET_LOADING,
     HIKE_ERROR,
     SET_CURRENT,
     CLEAR_CURRENT
@@ -86,18 +86,18 @@ const addHike = async hike => {
 }
 
 //Delete hike
-const deleteHike = async id => {
+// const deleteHike = async id => {
 
-}
+// }
 
-// Update hike
-const updateHike = async hike => {
+// // Update hike
+// const updateHike = async hike => {
 
-}
+// }
 
-const setLoading = () => {
-    dispatch({type: SET_LOADING})
-}
+// const setLoading = () => {
+//     dispatch({type: SET_LOADING})
+// }
 
 const setCurrent = hike => {
     dispatch({type: SET_CURRENT, payload: hike});
@@ -117,8 +117,8 @@ return (
             error: state.error,
             getHikes,
             addHike,
-            deleteHike,
-            updateHike,
+            // deleteHike,
+            // updateHike,
             setCurrent,
             clearCurrent
         }}

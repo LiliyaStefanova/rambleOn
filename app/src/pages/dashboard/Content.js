@@ -6,7 +6,7 @@ import { PropTypes } from "prop-types";
 
 const Content = () => {
 
-    const [error, setError] = useState(null);
+    const [error] = useState(null);
 
     if (error) {
       return <p>Something went wrong</p>;

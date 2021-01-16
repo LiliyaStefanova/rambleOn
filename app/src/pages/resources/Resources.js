@@ -7,7 +7,7 @@ import {faCompass, faMapMarked, faSubway, faCloudSunRain, faHiking} from '@forta
 
 library.add(faCompass, faMapMarked, faSubway, faCloudSunRain, faHiking);
 
-const Resources = (props) =>
+const Resources = () =>
             <div>
             <CardDeck>
                 <Card>

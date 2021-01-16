@@ -4,8 +4,8 @@ import {Button, Col, Form, FormFeedback, FormGroup, Input, InputGroup, InputGrou
 import InformationalModal from '../common/modals/InformationalModal'
 import DifficultyLevels from './DifficultyLevels'
 import HikeContext from '../../context/hike/hikeContext';
-import axios from 'axios';
-import { UPDATE_HIKE } from '../../context/types'
+// import axios from 'axios';
+// import { UPDATE_HIKE } from '../../context/types'
 
 const initialHike = {
   name: '',
@@ -18,8 +18,8 @@ const initialHike = {
   summary: ''
 }
 
-const PATH_BASE = 'http://localhost:8080';
-const PATH_GRAPHQL = '/rambleOn';
+// const PATH_BASE = 'http://localhost:8080';
+// const PATH_GRAPHQL = '/rambleOn';
 
 const NewHike = () => {
 
