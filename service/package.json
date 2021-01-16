@@ -1,6 +1,6 @@
 {
   "name": "service",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "npm run server",
@@ -11,24 +11,23 @@
     "@babel/core": "^7.12.10",
     "@babel/node": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
-    "babel": "^6.23.0",
     "body-parser": "^1.19.0",
     "config": "^3.3.3",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
-    "debug": "~2.6.9",
-    "eslint": "^5.16.0",
-    "express": "~4.16.0",
-    "express-graphql": "^0.7.1",
-    "graphql": "^14.7.0",
+    "debug": "~4.3.1",
+    "eslint": "^7.18.0",
+    "express": "~4.17.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.4.0",
     "graphql-iso-date": "^3.6.1",
     "graphql-tag": "^2.11.0",
-    "graphql-tools": "^4.0.8",
-    "http-errors": "~1.6.2",
+    "graphql-tools": "^7.0.2",
+    "http-errors": "~1.8.0",
     "jade": "~1.11.0",
     "merge-graphql-schemas": "^1.7.8",
     "mongoose": "^5.11.12",
-    "morgan": "~1.9.0",
-    "nodemon": "^1.19.4"
+    "morgan": "~1.10.0",
+    "nodemon": "^2.0.7"
   }
 }
