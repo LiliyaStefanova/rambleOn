@@ -1,8 +1,28 @@
+.footer {
+    background-size: cover;
+    background-color:  #2e4053;
+    height: 7rem;
+    margin: auto;
+    width: 100%;
+    border-style: none none solid none;
+    border-width: 1px;
+    border-color: #2e4053;
+}
 
+.footer-content {
+    margin: auto;
+    text-align: center;
+}
 
-.footer-icon{
+.footer-icon {
+    margin-top: 10px;
     color: 	#ffffff;
-    size:1em;
-    margin-right:3px
+    margin-right: 20px;
+}
+
+.footer-text {
+    margin-top: 30px;
+    margin-bottom: 5px;
+    color: white;
 }
 

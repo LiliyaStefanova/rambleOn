@@ -17,20 +17,24 @@ const App = () => {
   return (
     <HikeState>
       <HashRouter>
-        <div className="page-container">
-          <Header />
-          <Container className="content-wrap">
-            <Switch>
-              <Route exact path="/" component={Content} />
-              <Route path="/walk/create" component={NewHike} />
-              <Route path="/walks/all" component={HikeList} />
-              <Route path="/walk/details" component={HikeItemDetails} />
-              <Route path="/resources" component={Resources} />
-              <Route path="/contact" component={Contact} />
-            </Switch>
-          </Container>
+        <div className="app-site">
+          <div className="site-content">
+            <div className="app-header">
+              <Header />
+            </div>
+            <div className="main">
+              <Switch>
+                <Route exact path="/" component={Content} />
+                <Route path="/walk/create" component={NewHike} />
+                <Route path="/walks/all" component={HikeList} />
+                <Route path="/walk/details" component={HikeItemDetails} />
+                <Route path="/resources" component={Resources} />
+                <Route path="/contact" component={Contact} />
+              </Switch>
+            </div>
+          </div>
           <div className="footer">
-            <Footer />
+            <Footer/>
           </div>
         </div>
       </HashRouter>
